@@ -4,7 +4,8 @@ from typing import List
 
 HYPEN_E_DOT='-e .'
 
-def get_requirements(file_path:str)->List[str]:
+def get_requirements(file_path:str)->List[str]: 
+    ## this means function will take string type parameters and return list of strings
     '''
     this function will return a list of requirements
     '''
