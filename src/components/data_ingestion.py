@@ -5,11 +5,13 @@ from src.logger import logging
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
+from src.components.data_transformation import DataTransformation,DataTransformationConfig
 
 # A dataclass automatically generates special methods like __init__(), __repr__(), and __eq__() for a class.
 # This decorator converts the DataIngestionConfig class into a dataclass.
 @dataclass
 class DataIngestionConfig:
+    # This joins the folder 'artifact' and the file name 'train.csv' to create a proper path:
     train_data_path:str=os.path.join('artifact','train.csv')
     test_data_path:str=os.path.join('artifact','test.csv')
     raw_data_path:str=os.path.join('artifact','data.csv')
@@ -25,6 +27,7 @@ class DataIngestion:
             df = pd.read_csv('C:/Users/HP/OneDrive/Desktop/mlproject/notebook/data/stud.csv')
             logging.info('Read the dataset as dataframe')
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
+            # os.path.dirname : This returns the directory name from the path:
             df.to_csv(self.ingestion_config.raw_data_path,index=False,header=True)
             logging.info('Train test split initiated')
             
@@ -45,4 +48,7 @@ class DataIngestion:
         
 if __name__=='__main__':
     obj=DataIngestion()
-    obj.initiate_data_ingestion()
+    train_data,test_data=obj.initiate_data_ingestion()
+    
+    data_tranformation=DataTransformation()
+    data_tranformation.initiate_data_transformation(train_data,test_data)

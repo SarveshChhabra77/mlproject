@@ -26,7 +26,4 @@ setup(
     packages=find_packages(),
     ## it will see all directory having __init__.py file and convert in into packages
     install_requires=get_requirements("requirements.txt")
-    
-    
-    
 )

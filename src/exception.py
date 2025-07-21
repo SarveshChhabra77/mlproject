@@ -1,5 +1,5 @@
-import sys 
-import logging
+import sys
+from src.logger import logging
 
 ## this all available in custom exception handling
 def error_message_details(error,error_detail:sys):
