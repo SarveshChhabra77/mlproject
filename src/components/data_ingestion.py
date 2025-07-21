@@ -6,6 +6,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 from src.components.data_transformation import DataTransformation,DataTransformationConfig
+from src.components.model_trainer import ModelTrainer,ModelTrainerConfig
 
 # A dataclass automatically generates special methods like __init__(), __repr__(), and __eq__() for a class.
 # This decorator converts the DataIngestionConfig class into a dataclass.
@@ -51,4 +52,6 @@ if __name__=='__main__':
     train_data,test_data=obj.initiate_data_ingestion()
     
     data_tranformation=DataTransformation()
-    data_tranformation.initiate_data_transformation(train_data,test_data)
+    train_arr,test_arr,_=data_tranformation.initiate_data_transformation(train_data,test_data)
+    modelTrainer=ModelTrainer()
+    print(modelTrainer.initiate_model_trainer(train_arr,test_arr))
