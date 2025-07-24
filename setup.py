@@ -3,7 +3,7 @@ from typing import List
 
 
 HYPEN_E_DOT='-e .'
-
+# -e . this means download using setup.py from the current directory
 def get_requirements(file_path:str)->List[str]: 
     ## this means function will take string type parameters and return list of strings
     '''

@@ -5,8 +5,8 @@ from src.logger import logging
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
-from src.components.data_transformation import DataTransformation,DataTransformationConfig
-from src.components.model_trainer import ModelTrainer,ModelTrainerConfig
+from src.components.data_transformation import DataTransformation
+from src.components.model_trainer import ModelTrainer
 
 # A dataclass automatically generates special methods like __init__(), __repr__(), and __eq__() for a class.
 # This decorator converts the DataIngestionConfig class into a dataclass.

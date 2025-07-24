@@ -3,6 +3,7 @@ import os
 from datetime import datetime
 
 LOG_FILE=f'{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log'
+## creates a log file with currect date and time
 logs_path=os.path.join(os.getcwd(),"logs",LOG_FILE)
 #It creates a full file path to a log file inside a logs/ directory located in the current working directory.
 os.makedirs(logs_path,exist_ok=True)
@@ -14,6 +15,8 @@ LOG_FILE_PATH=os.path.join(logs_path,LOG_FILE)
 # It creates the full path to the log file by combining:
 # logs_path: the path to the logs directory (e.g., /home/user/project/logs)
 # LOG_FILE: the name of the log file (e.g., "app.log")
+
+
 
 
 logging.basicConfig(
